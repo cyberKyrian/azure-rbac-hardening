@@ -7,11 +7,11 @@
 
 ---
 
-## Lab Overview
+## Overview
 
-In this lab, I simulated a common enterprise misconfiguration involving overly permissive access in Microsoft Azure. Using Azure’s RBAC system, I created, tested, and then hardened access controls to enforce the principle of least privilege (PoLP).
+In this project, I explored a real-world Azure RBAC (Role-Based Access Control) misconfiguration and implemented secure access controls to enforce the Principle of Least Privilege (PoLP).
 
-This lab mirrors real-world security audits and shows my ability to spot and fix identity-related weaknesses — a critical part of securing cloud environments.
+The lab simulates what happens when a user is mistakenly granted excessive privileges in a cloud environment — a common cause of data breaches — and how this can be identified and fixed using built-in Azure tools.
 
 ---
 
@@ -37,85 +37,52 @@ This lab mirrors real-world security audits and shows my ability to spot and fix
 
 ---
 
-## Part 1: Simulate Misconfiguration
+## What I Did
 
-### Step 1: Create a Resource Group
+I created a new Azure Resource Group and assigned the **Owner** role to a test user (`user1@...`). This excessive permission allowed the user to modify IAM settings and delete resources — a clear violation of PoLP.
 
-* Go to Azure Portal > Resource Groups > Create
-* Name: `rbac-cyberkyrian-rg`
-* Region: your preferred region
-
-> ✅ **Screenshot:** Resource group created and visible in portal
+> ✅ **Screenshot:** Azure portal showing `rbac-test-rg` resource group created
 > ![](./screenshots/resource-group.png)
 
-### Step 2: Add a Test User With Excessive Privileges
-
-* Go to: Resource Group > `Access Control (IAM)` > `Add role assignment`
-* Select Role: **Owner**
-* Assign to: `user1`
-* Save
-
-> ✅ **Screenshot:** IAM panel showing user1 as Owner
+> ✅ **Screenshot:** `user1` mistakenly assigned the Owner role
 > ![](./screenshots/owner-misconfig.png)
 
-### Step 3: Verify the Misconfiguration
+Using a private session, I logged in as `user1` and demonstrated the ability to access privileged actions such as IAM role assignments and deletion.
 
-* Login as `user1` in incognito/private window
-* Go to `rbac-cyberkyrian-rg`
-* Attempt to delete resources or assign roles
-
-> ✅ **Screenshot:** User1 accessing admin controls or deleting resources
+> ✅ **Screenshot:** `user1` accessing elevated IAM controls
 > ![](./screenshots/user1-admin-access.png)
 
----
+To fix the issue, I removed the Owner role and reassigned a Reader role — enforcing least privilege.
 
-## Part 2: Apply Principle of Least Privilege
-
-### Step 4: Remove Over-Permissioned Role
-
-* Return to `Access Control (IAM)` for `rbac-cyberkyrian-rg`
-* Remove `Owner` role from `user1`
-
-> ✅ **Screenshot:** IAM panel showing role removed
+> ✅ **Screenshot:** Owner role removed from `user1`
 > ![](./screenshots/owner-removed.png)
 
-### Step 5: Reassign Minimal Role
-
-* Go to: `Access Control (IAM)` > `Add role assignment`
-* Select Role: **Reader**
-* Assign to: `user1`
-* Save
-
-> ✅ **Screenshot:** IAM showing `user1` now as Reader only
+> ✅ **Screenshot:** Reader role applied to `user1` via IAM
 > ![](./screenshots/reader-reassigned.png)
 
-### Step 6: Verify Access Limitation
+I then re-logged in as `user1` to confirm they could no longer access or modify protected resources.
 
-* Log in as `user1` again
-* Try to delete resource or modify settings
-* Access should be denied
-
-> ✅ **Screenshot:** Access denied message or restricted view
+> ✅ **Screenshot:** Access denied when `user1` tries privileged action
 > ![](./screenshots/access-denied.png)
-
 ---
 
-## Why This Project Stands Out
+## Why This Matters
 
-* Demonstrates **real-world misconfiguration + hardening workflow**
-* Shows cloud IAM and RBAC skills critical to all Azure environments
-* Screenshots offer **proof of practical experience**, not just theory
-* Valuable for any role in cloud security, governance, or GRC
+IAM misconfiguration is one of the most frequent cloud vulnerabilities. This project shows I understand how to:
+
+* Identify dangerous privilege assignments
+* Audit and remediate IAM issues
+* Apply secure role delegation in Microsoft Azure
 
 ---
 
 ## Outcome
 
-This project validates my ability to:
+This project proves my ability to:
 
-* Detect and fix IAM misconfigurations
-* Apply least privilege across cloud environments
-* Safely test and document access control workflows
+* Conduct IAM reviews
+* Implement security policy corrections
+* Reduce identity-based risk in Azure environments
 
 ---
 
