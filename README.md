@@ -1,6 +1,7 @@
 # Azure RBAC Misconfiguration & Hardening Lab
 
 ### Author: Kyrian Onyeagusi
+🔗 [LinkedIn](https://www.linkedin.com/in/kyrian-onyeagusi/) | 📧 [Email](mailto:kyrianoc18@gmail.com)
 
 ### Focus: Simulating and remediating IAM misconfigurations using Azure Role-Based Access Control (RBAC)
 
@@ -121,5 +122,4 @@ This project validates my ability to:
 ## 🔗 Connect
 
 **Kyrian Onyeagusi**
-🌍 Based in Nigeria — Open to Remote Roles
-🔗 [LinkedIn](#) | 📧 [Email](#)
+🔗 [LinkedIn](https://www.linkedin.com/in/kyrian-onyeagusi/) | 📧 [Email](mailto:kyrianoc18@gmail.com)
